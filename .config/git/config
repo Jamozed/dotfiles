@@ -1,0 +1,48 @@
+# config
+# Config file for Git
+# Located in ~/.config/git
+
+[alias]
+	a = add
+	aa = add -A
+	ap = add -p
+	c = clone --recursive
+	cl = clean -dfX
+	cv = commit -v -uno
+	l = log -n20 --graph --oneline
+	ll = log --graph --oneline
+	r = restore
+	rs = restore --staged
+	s = status -sb -uall
+	
+	alias = config --get-regexp alias
+	branches = branch -a
+	remotes = remote -v
+	tags = tag -l
+	
+	fm = "!f() { git log --pretty=format:'%C(yellow)%h %Cblue%as %Creset%s' --grep=\"$1\"; }; f"
+
+	cn = "!f() { git log --reverse --pretty=%H master | grep -A 1 $(git rev-parse HEAD) | tail -n1 | xargs git checkout }; f"
+	cp = checkout HEAD^1
+
+[credential "https://git.omkov.net/"]
+	username = Jamozed
+
+[pull]
+	rebase = false
+
+[url "https://git.omkov.net/"]
+	insteadOf = "omkov:"
+
+[url "git@github.com:"]
+	insteadOf = "github:"
+
+[url "git@gitlab.com:"]
+	insteadOf = "gitlab:"
+
+[user]
+	name = Jamozed
+	email = jake@omkov.net
+
+[init]
+	defaultBranch = master
