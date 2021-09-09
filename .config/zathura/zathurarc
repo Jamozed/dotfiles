@@ -1,0 +1,10 @@
+# zathurarc
+# Config file for Zathura
+# Located in ~/.config/zathura
+
+set database null
+set selection-clipboard clipboard
+set sandbox none
+
+map <C-d> feedkeys ":set first-page-column 1:2<Return>"
+map <A-d> feedkeys ":set first-page-column 2:3<Return>"
