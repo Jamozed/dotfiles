@@ -2,12 +2,18 @@
 
 Configuration files and scripts for my Linux system.
 
-There are configuration files for:
+## Configs
 
 - Bash (Shell)
 - Git (VCS)
 - Neovim (Editor)
 - Zathura (PDF Viewer)
+
+## Scripts
+
+- flactomp3 - Convert FLAC to MP3
+- reflac - (Re)encode FLAC files
+- repdf - Re-encode PDF files
 
 ## Usage
 
