@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 DIR="$(dirname $(realpath "$0"))"
 DIR_CONFIG="$DIR/config"
+DIR_SCRIPT="$DIR/script"
 
 # Check XDG environment variables, and set the to default if unset
 if [ -z "$XDG_CONFIG_HOME" ]; then XDG_CONFIG_HOME="$HOME/.config"; fi
@@ -23,6 +24,9 @@ install "$XDG_CONFIG_HOME" "$DIR_CONFIG" "nvim/init.lua"
 install "$XDG_CONFIG_HOME" "$DIR_CONFIG" "zathura/zathurarc"
 
 install "$HOME" "$DIR_CONFIG" ".bashrc"
+
+# Install symbolic links for scripts if they do not already exist
+install "$HOME/.local/bin" "$DIR_SCRIPT" "reflac"
 
 # Ensure that required programs are installed
 if ! command -v git > /dev/null; then error "git: Not found in PATH"; fi
