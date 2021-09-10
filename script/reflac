@@ -7,9 +7,9 @@ error() { echo "$(basename "$0"): $1" >&2; exit 1; }
 warn() { echo "$(basename "$0"): $1" >&2; }
 
 # Check that FLAC is installed
-if ! command -v flac > /dev/null; then error "flac: Not found in PATH"; fi
+if ! command -v flac > /dev/null; then error 'flac: Not found in PATH'; fi
 
-FLAC_OPTIONS="-8 --replay-gain -f"
+FLAC_OPTIONS='-8 --replay-gain -f'
 
 # (Re)encode each argument as a FLAC file or folder containing FLAC files
 for a in "$@"; do

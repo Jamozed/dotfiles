@@ -19,17 +19,18 @@ install() {
 }
 
 # Install symbolic links for config files if they do not already exist
-install "$XDG_CONFIG_HOME" "$DIR_CONFIG" "git/config"
-install "$XDG_CONFIG_HOME" "$DIR_CONFIG" "nvim/init.lua"
-install "$XDG_CONFIG_HOME" "$DIR_CONFIG" "zathura/zathurarc"
+install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'git/config'
+install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'nvim/init.lua'
+install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'zathura/zathurarc'
 
-install "$HOME" "$DIR_CONFIG" ".bashrc"
+install "$HOME" "$DIR_CONFIG" '.bashrc'
 
 # Install symbolic links for scripts if they do not already exist
-install "$HOME/.local/bin" "$DIR_SCRIPT" "reflac"
+install "$HOME/.local/bin" "$DIR_SCRIPT" 'reflac'
+install "$HOME/.local/bin" "$DIR_SCRIPT" 'repdf'
 
 # Ensure that required programs are installed
-if ! command -v git > /dev/null; then error "git: Not found in PATH"; fi
+if ! command -v git > /dev/null; then error 'git: Not found in PATH'; fi
 
 # Install Neovim Paq plugin manager if it is not already installed
 if [ ! -d "$XDG_DATA_HOME/nvim/site/pack/paqs/start/paq-nvim" ]; then

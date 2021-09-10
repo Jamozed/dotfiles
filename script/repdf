@@ -1,0 +1,41 @@
+#!/usr/bin/env sh
+# repdf, version 0.3.0
+# Script for re-encoding PDF files
+
+# Print the message $1 to stderr and potentially exit
+error() { echo "$(basename "$0"): $1" >&2; exit 1; }
+warn() { echo "$(basename "$0"): $1" >&2; }
+
+# Ensure that required programs are installed
+if ! command -v exiftool > /dev/null; then error 'exiftool: Not found in PATH'; fi
+if ! command -v qpdf > /dev/null; then error 'qpdf: Not found in PATH'; fi
+
+# Parse arguments
+ARGS=$(getopt -o '' -l 'author:,description:,isbn:,title:' -- "$@") || exit 1; eval "set -- $ARGS"
+
+while true; do case $1 in
+	(--author)      AUTHOR="$2";      shift 2;;
+	(--description) DESCRIPTION="$2"; shift 2;;
+	(--isbn)        ISBN="$2";        shift 2;;
+	(--title)       TITLE="$2";       shift 2;;
+	(--) shift; break;;
+	(*)  exit 1;;
+esac done
+
+# Ensure that the file exists, maybe also check that it is a PDF?
+if [ ! -f "$1" ]; then error "$1: File does not exist"; fi
+
+EXIFTOOL_OPTIONS='-overwrite_original -all='
+QPDF_OPTIONS='--linearize --replace-input --recompress-flate --compression-level=9 --object-streams=generate \
+	--min-version=1.7'
+
+if [ -n "$AUTHOR" ]; then EXIFTOOL_OPTIONS="$EXIFTOOL_OPTIONS -author=\"$AUTHOR\""; fi
+if [ -n "$DESCRIPTION" ]; then EXIFTOOL_OPTIONS="$EXIFTOOL_OPTIONS -description=\"$DESCRIPTION\""; fi
+if [ -n "$ISBN" ]; then EXIFTOOL_OPTIONS="$EXIFTOOL_OPTIONS -isbn=\"$ISBN\""; fi
+if [ -n "$TITLE" ]; then EXIFTOOL_OPTIONS="$EXIFTOOL_OPTIONS -title=\"$TITLE\""; fi
+
+# Set EXIF data for the PDF file
+eval exiftool $EXIFTOOL_OPTIONS -- "$1"
+
+# Reencode the PDF file
+qpdf $QPDF_OPTIONS --replace-input -- "$1"
