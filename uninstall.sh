@@ -23,4 +23,6 @@ uninstall "$XDG_CONFIG_HOME/zathura/zathurarc"
 uninstall "$HOME/.bashrc"
 
 # Uninstall symbolic links for scripts if they exist
+uninstall "$HOME/.local/bin/flactomp3"
 uninstall "$HOME/.local/bin/reflac"
+uninstall "$HOME/.local/bin/repdf"

@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+# flactomp3, version 0.2.0
+# Script for converting FLAC files to MP3
+
+# Print the message $1 to stderr and potentially exit
+error() { echo "$(basename "$0"): $1" >&2; exit 1; }
+warn() { echo "$(basename "$0"): $1" >&2; }
+
+# Ensure that required programs are installed
+if ! command -v ffmpeg > /dev/null; then error 'ffmpeg: Not found in PATH'; fi
+
+OUTPUT_OPTIONS='-acodec libmp3lame'
+
+# Convert each argument as a FLAC file or directory containing FLAC files
+for a in "$@"; do
+	# If the argument is a file, then convert it
+	if [ -f "$a" ]; then ffmpeg -i "$a" $OUTPUT_OPTIONS "${a/.flac}.mp3"; continue; fi
+	
+	# If the argument is a directory, then convert all contained files
+	if [ -d "$a" ]; then for f in "$a"/*.flac; do ffmpeg -i "$f" $OUTPUT_OPTIONS "${f/.flac}.mp3"; done; continue; fi
+	
+	warn "$a: No such file or directory";
+done

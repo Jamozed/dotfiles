@@ -26,6 +26,7 @@ install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'zathura/zathurarc'
 install "$HOME" "$DIR_CONFIG" '.bashrc'
 
 # Install symbolic links for scripts if they do not already exist
+install "$HOME/.local/bin" "$DIR_SCRIPT" 'flactomp3'
 install "$HOME/.local/bin" "$DIR_SCRIPT" 'reflac'
 install "$HOME/.local/bin" "$DIR_SCRIPT" 'repdf'
 
