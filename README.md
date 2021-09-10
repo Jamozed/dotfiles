@@ -14,3 +14,5 @@ There are configuration files for:
 Once the repository has been cloned, the dotfiles can be installed by running
 `./install.sh`. This will create symlinks for each of the configuration files
 assuming there is not already a file present.
+
+Neovim plugins must be installed by running `:PaqInstall` inside Neovim.
