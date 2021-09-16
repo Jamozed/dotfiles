@@ -16,6 +16,7 @@ uninstall() {
 }
 
 # Uninstall symbolic links for config files if they exist
+uninstall "$XDG_CONFIG_HOME/bspwm/bspwmrc"
 uninstall "$XDG_CONFIG_HOME/git/config"
 uninstall "$XDG_CONFIG_HOME/nvim/init.lua"
 uninstall "$XDG_CONFIG_HOME/zathura/zathurarc"
