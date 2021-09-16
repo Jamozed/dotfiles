@@ -31,6 +31,7 @@ install "$HOME" "$DIR_CONFIG" '.bashrc'
 install "$HOME/.local/bin" "$DIR_SCRIPT" 'flactomp3'
 install "$HOME/.local/bin" "$DIR_SCRIPT" 'reflac'
 install "$HOME/.local/bin" "$DIR_SCRIPT" 'repdf'
+install "$HOME/.local/bin" "$DIR_SCRIPT" 'sudo'
 
 # Ensure that required programs are installed
 if ! command -v git > /dev/null; then error 'git: Not found in PATH'; fi
