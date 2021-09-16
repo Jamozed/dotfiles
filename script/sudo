@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# sudo, version 0.1.0
+# sudo, version 0.2.0
 # Shell script Sudo wrapper for OpenDoas
 
 # Print the message $1 to stderr and potentially exit.
@@ -10,27 +10,17 @@ warn() { echo "$(basename "$0"): $1" >&2; }
 if ! command -v doas > /dev/null; then error 'doas: Not found in PATH'; fi
 
 # Parse arguments
-ARGS=$(getopt -o 'C:ELnsu:' -- "$@") || exit 1; eval "set -- $ARGS"
+ARGS=$(getopt -o '+E' -- "$@") || exit 1; eval "set -- $ARGS"
 
 while true; do case $1 in
-	(-C) COARG="$2"; shift 2;;
 	(-E) EFLAG=true; shift 1;;
-	(-L) LFLAG=true; shift 1;;
-	(-n) nFLAG=true; shift 1;;
-	(-s) sFLAG=true; shift 1;;
-	(-u) uOARG="$2"; shift 2;;
 	(--) shift 1; break;;
 	(*)  exit 1;;
 esac done
 
-if [ -n "$COARG" ]; then DOAS_OPTIONS="$DOAS_OPTIONS -C \"$COARG\""; fi
-if [ "$LFLAG" = true ]; then DOAS_OPTIONS="$DOAS_OPTIONS -L"; fi
-if [ "$nFLAG" = true ]; then DOAS_OPTIONS="$DOAS_OPTIONS -n"; fi
-if [ "$sFLAG" = true ]; then DOAS_OPTIONS="$DOAS_OPTIONS -s"; fi
-if [ -n "$uOARG" ]; then DOAS_OPTIONS="$DOAS_OPTIONS -u \"$uOARG\""; fi
+if [ "$EFLAG" = true ]; then SH_COMMAND="$SH_COMMAND export '$(env)';"; fi
 
 for a in "$@"; do DOAS_COMMAND="$DOAS_COMMAND '$a'"; done
 
 # Execute generated doas command
-if [ "$EFLAG" = true  ]; then doas $DOAS_OPTIONS -- sh -c "export '$(env)'; $DOAS_COMMAND"; fi
-if [ "$EFLAG" = false ]; then doas $DOAS_OPTIONS -- sh -c "$DOAS_COMMAND"; fi
+doas $DOAS_OPTIONS -- sh -c "$SH_COMMAND $DOAS_COMMAND"
