@@ -1,0 +1,85 @@
+# vim: set ft=sxhkdrc:
+# Config file for sxhkd
+# Located in ~/.config/sxhkd
+
+# Quit or restart bspwm and sxhkd
+super + shift + {Escape,F5}
+	bspc {quit,wm -r};
+
+# Close or kill the current window
+super + {_,shift + }q
+	bspc node -{c,k};
+
+# Focus or shift the window in the given direction
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east};
+
+# Focus or send the window to the given desktop
+super + {_,shift + }{1-9,0,minus,equal}
+	bspc {desktop -f, node -d} '^{1-9,10,11,12}';
+super + alt + {_,shift + }{1-9,0,minus,equal}
+	bspc {desktop -f, node -d} '^{13,14,15,16,17,18,19,20,21,22,23,24}';
+
+# Cycle through windows in the current desktop
+super + {_,shift +}c
+	bspc node -f {next,prev}.local.!hidden.window;
+
+# Alternate between the tiled and monocle layouts
+super + m
+	bspc desktop -l next;
+
+# Set the window state
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen};
+
+# Lock the screen
+super + l
+	physlock -m;
+
+# Application bindings
+super + Return
+	$TERMINAL;
+super + Tab
+	rofi -show drun;
+super + v
+	code;
+super + {_,shift + }b
+	$BROWSER {_,--incognito};
+super + e
+	nemo;
+
+# Brightness Bindings
+XF86MonBrightnessDown
+	brightnessctl -q set 10%-;
+XF86MonBrightnessUp
+	brightnessctl -q set 10%+;
+
+super + F4
+	brightnessctl -q -s set 0%;
+super + F5
+	brightnessctl -q -r;
+
+# Audio Bindings
+XF86AudioMute
+	pactl -- set-sink-mute @DEFAULT_SINK@ toggle;
+XF86AudioLowerVolume
+	pactl -- set-sink-volume @DEFAULT_SINK@ -1%;
+XF86AudioRaiseVolume
+	pactl -- set-sink-volume @DEFAULT_SINK@ +1%;
+
+XF86AudioPlay
+	mpc toggle;
+XF86AudioStop
+	mpc stop;
+XF86AudioNext
+	mpc next;
+XF86AudioPrev
+	mpc prev;
+
+# Touchpad Bindings
+XF86TouchpadToggle
+	toggle_touchpad;
+
+# Misc Bindings
+super + shift + s
+	screenshot;
