@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# repdf, version 0.3.0
+# repdf, version 0.3.1
 # Script for re-encoding PDF files
 
 # Print the message $1 to stderr and potentially exit
@@ -26,8 +26,7 @@ esac done
 if [ ! -f "$1" ]; then error "$1: File does not exist"; fi
 
 EXIFTOOL_OPTIONS='-overwrite_original -all='
-QPDF_OPTIONS='--linearize --replace-input --recompress-flate --compression-level=9 --object-streams=generate \
-	--min-version=1.7'
+QPDF_OPTIONS='--linearize --recompress-flate --compression-level=9 --object-streams=generate --min-version=1.7'
 
 if [ -n "$AUTHOR" ]; then EXIFTOOL_OPTIONS="$EXIFTOOL_OPTIONS -author=\"$AUTHOR\""; fi
 if [ -n "$DESCRIPTION" ]; then EXIFTOOL_OPTIONS="$EXIFTOOL_OPTIONS -description=\"$DESCRIPTION\""; fi
