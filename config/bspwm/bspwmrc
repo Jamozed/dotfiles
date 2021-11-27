@@ -6,7 +6,6 @@
 pkill -x sxhkd; sxhkd &
 pkill -x dunst; dunst &
 pgrep -x picom > /dev/null || picom &
-pgrep -x udiskie > /dev/null || udiskie --tray &
 
 # Configure cursor
 xsetroot -cursor_name left_ptr
