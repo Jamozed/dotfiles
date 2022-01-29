@@ -7,6 +7,9 @@ pkill -x sxhkd; sxhkd &
 pkill -x dunst; dunst &
 pgrep -x picom > /dev/null || picom &
 
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
+
 # Configure cursor
 xsetroot -cursor_name left_ptr
 xset r rate 200 50
