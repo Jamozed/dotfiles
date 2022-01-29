@@ -23,8 +23,6 @@ vim.opt.tabstop        = 4             -- Set tab width
 vim.opt.termguicolors  = true          -- Enable 24-bit colour in the TUI
 vim.opt.undofile       = true          -- Enable undo files
 
-vim.cmd("inoremap <cr> <cr><left><right>")
-
 require "paq" { "hoob3rt/lualine.nvim", "savq/paq-nvim" }
 
 require("lualine").setup { options = { icons_enabled = false } }
