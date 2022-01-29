@@ -27,7 +27,7 @@ bspc rule -a Zathura              state=tiled
 
 # Configure machine specific settings
 case "$(cat /etc/hostname)" in
-	('zeus')
+	('jupiter')
 		pkill -x polybar; polybar pb & polybar sb &
 		pgrep -x numlockx > /dev/null || numlockx &
 		
