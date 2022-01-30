@@ -2,6 +2,9 @@
 # Config file for bspwm
 # Located in ~/.config/bspwm
 
+# Source environment variables from .profile
+source "$HOME/.profile"
+
 # Launch or relaunch daemons
 pkill -x sxhkd; sxhkd &
 pkill -x dunst; dunst &
