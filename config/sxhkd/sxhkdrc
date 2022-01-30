@@ -82,4 +82,7 @@ XF86TouchpadToggle
 
 # Misc Bindings
 super + shift + s
-	screenshot;
+	maim -su | xclip -t 'image/png' -selection clipboard;
+
+super + alt + shift + s
+	maim -su "$HOME/Images/Screenshots/$(date "+%Y%m%d%H%M%S").png";
