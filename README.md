@@ -5,8 +5,11 @@ Configuration files and scripts for my Linux system.
 ## Configs
 
 - Bash (Shell)
+- bspwm (Window Manager)
 - Git (VCS)
 - Neovim (Editor)
+- picom (Compositor)
+- sxhkd (Hotkey Daemon)
 - Zathura (PDF Viewer)
 
 ## Scripts
