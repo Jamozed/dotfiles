@@ -21,6 +21,7 @@ uninstall "$XDG_CONFIG_HOME/git/config"
 uninstall "$XDG_CONFIG_HOME/nvim/init.lua"
 uninstall "$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
 uninstall "$XDG_CONFIG_HOME/zathura/zathurarc"
+uninstall "$XDG_CONFIG_HOME/picom/picom.conf"
 
 uninstall "$HOME/.bashrc"
 
