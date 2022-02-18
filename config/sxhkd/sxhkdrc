@@ -43,8 +43,8 @@ super + Tab
 	rofi -show drun;
 super + v
 	code;
-super + {_,shift + }b
-	$BROWSER {_,--incognito};
+super + {_,shift +,shift + ctrl + }b
+	$BROWSER {_,--incognito,--restore-last-session};
 super + e
 	nemo;
 
