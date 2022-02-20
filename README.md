@@ -10,6 +10,7 @@ Configuration files and scripts for my Linux system.
 - Git (VCS)
 - Neovim (Editor)
 - picom (Compositor)
+- Polybar (Status Bar)
 - sxhkd (Hotkey Daemon)
 - Zathura (PDF Viewer)
 

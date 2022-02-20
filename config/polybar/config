@@ -1,0 +1,165 @@
+# vim: set ft=dosini:
+# Config file for Polybar
+# Located in ~/.config/polybar
+
+[colours]
+bg = #1d2021
+bg0 = #1d2021
+bg1 = #3c3836
+bg2 = #504945
+bg3 = #665c54
+bg4 = #7c6f64
+fg = #ebdbb2
+fg0 = #fbf1c7
+fg1 = #ebdbb2
+fg2 = #d5c4a1
+fg3 = #bdae93
+fg4 = #a89984
+
+c0 = #1d20d2
+c1 = #cc241d
+c2 = #98971a
+c3 = #d79921
+c4 = #458588
+c5 = #b16286
+c6 = #689d6a
+c7 = #a89984
+c8 = #928374
+c9 = #fb4934
+c10 = #b8bb26
+c11 = #fabd2f
+c12 = #83a598
+c13 = #d3869b
+c14 = #8ec07c
+c15 = #ebdbb2
+
+or0 = #d65d0e
+or1 = #fe8019
+
+[bar/base]
+width = 100%:-14
+height = 32
+offset-x = 7
+offset-y = 7
+background = ${colours.bg}
+foreground = ${colours.fg}
+padding-right = 1
+module-margin = 1
+font-0 = Noto Sans Mono:pixelsize=12;2
+font-1 = MaterialIcons:size=12;4
+cursor-click = pointer
+cursor-scroll = ns-resize
+wm-restack = bspwm
+
+[bar/b0]
+inherit = bar/base
+#monitor = ${env:MONITOR:DP-2}
+#monitor = ${env:MONITOR:eDP1}
+bottom = false
+modules-left = bspwm
+modules-center = clock
+modules-right = cpu cpu-temperature memory network volume battery
+tray-position = right
+
+[bar/b1]
+inherit = bar/base
+monitor = ${env:MONITOR:HDMI-0}
+bottom = false
+modules-left = bspwm
+modules-center = clock
+modules-right = cpu cpu-temperature memory network volume
+
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = true
+
+label-focused = %name%
+label-focused-background = ${colours.bg1}
+label-focused-foreground = ${colours.or1}
+label-focused-padding = 1
+
+label-occupied = %name%
+label-occupied-padding = 1
+
+label-urgent = %name%
+label-urgent-background = ${colours.c1}
+label-urgent-padding = 1
+
+label-empty = %name%
+label-empty-foreground = ${colours.c8}
+label-empty-padding = 1
+
+[module/clock]
+type = internal/date
+date = "%F "
+time = %T
+date-alt = %A, %d %B %Y
+label = %date%%time%
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC0
+
+format-charging = <animation-charging> <label-charging>
+format-charging-foreground = ${colours.c12}
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-foreground = ${colours.c4}
+
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full =  %percentage%%
+label-full-foreground = ${colours.c12}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+
+[module/volume]
+type = internal/pulseaudio
+format-volume = <ramp-volume> <label-volume>
+format-volume-foreground = ${colours.c10}
+label-volume = %percentage%%
+label-muted =  %percentage%%
+label-muted-foreground = ${colours.c1}
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+click-right = pavucontrol
+
+[module/network]
+type = internal/network
+interface = enp5s0
+label-connected =  %local_ip%
+label-connected-foreground = ${colours.c11}
+label-disconnected = 
+label-disconnected-foreground = ${colours.c1}
+
+[module/cpu]
+type = internal/cpu
+label =  %percentage%%
+label-foreground = ${colours.c13}
+
+[module/cpu-temperature]
+type = internal/temperature
+thermal-zone = 3
+warn-temperature = 80
+label =  %temperature-c%
+label-foreground = ${colours.c13}
+label-warn =  %temperature-c%
+label-warn-foreground = ${colours.c1}
+
+[module/memory]
+type = internal/memory
+label =  %gb_used%
+label-foreground = ${colours.c14}
