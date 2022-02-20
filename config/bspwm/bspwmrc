@@ -43,10 +43,10 @@ case "$(cat /etc/hostname)" in
 		bspc monitor DP-2 -d 1 2 3 4 5 6 7 8 9 0 - =
 		bspc monitor HDMI-0 -d 1 2 3 4 5 6 7 8 9 0 - =
 		;;
-	('lithium')
+	(*)
 		pkill -x polybar; polybar b0 &
 		pkill -x nm-applet; nm-applet &
 		
-		bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 0 - =
+		bspc monitor -d 1 2 3 4 5 6 7 8 9 0 - =
 		;;
 esac
