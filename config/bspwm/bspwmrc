@@ -10,8 +10,11 @@ pkill -x sxhkd; sxhkd &
 pkill -x dunst; dunst &
 pgrep -x picom > /dev/null || picom &
 
-eval $(gnome-keyring-daemon --start)
-export SSH_AUTH_SOCK
+# Start the Gnome keyring daemon
+if [ -n "$DESKTOP_SESSION" ]; then
+	eval $(gnome-keyring-daemon --start)
+	export SSH_AUTH_SOCK
+fi
 
 # Configure cursor
 xsetroot -cursor_name left_ptr
