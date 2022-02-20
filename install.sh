@@ -19,6 +19,7 @@ install() {
 }
 
 # Install symbolic links for config files if they do not already exist
+install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'alacritty/alacritty.yml'
 install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'bspwm/bspwmrc'
 install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'git/config'
 install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'nvim/init.lua'

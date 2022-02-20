@@ -4,6 +4,7 @@ Configuration files and scripts for my Linux system.
 
 ## Configs
 
+- Alacritty (Terminal)
 - Bash (Shell)
 - bspwm (Window Manager)
 - Git (VCS)
