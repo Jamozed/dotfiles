@@ -22,6 +22,7 @@ install() {
 install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'alacritty/alacritty.yml'
 install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'bspwm/bspwmrc'
 install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'git/config'
+install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'npm/npmrc'
 install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'nvim/init.lua'
 install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'picom/picom.conf'
 install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'polybar/config'

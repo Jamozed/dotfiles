@@ -19,6 +19,7 @@ uninstall() {
 uninstall "$XDG_CONFIG_HOME/alacritty/alacritty.yml"
 uninstall "$XDG_CONFIG_HOME/bspwm/bspwmrc"
 uninstall "$XDG_CONFIG_HOME/git/config"
+uninstall "$XDG_CONFIG_HOME/npm/npmrc"
 uninstall "$XDG_CONFIG_HOME/nvim/init.lua"
 uninstall "$XDG_CONFIG_HOME/picom/picom.conf"
 uninstall "$XDG_CONFIG_HOME/polybar/config"
