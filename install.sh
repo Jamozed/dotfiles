@@ -16,28 +16,37 @@ DIR_CONFIG="$DIR/config"
 DIR_SCRIPT="$DIR/script"
 
 # Install the file $3 from the source $2 to destination $1
+#install() {
+#	if [ -L "$1/$3" ]; then echo "$3: already installed"; return; fi
+#	mkdir -p "$(dirname "$1/$3")"; ln -isv "$2/$3" "$1/$3"
+#}
+
+# Install the file $3 from the source $1 to the destination $2
 install() {
-	if [ -L "$1/$3" ]; then echo "$3: already installed"; return; fi
-	mkdir -p "$(dirname "$1/$3")"; ln -isv "$2/$3" "$1/$3"
+	if ! [ -e "$1/$3" ]; then echo "$3: dotfile missing"; return; fi
+	if   [ -L "$2/$3" ]; then echo "$3: already installed"; return; fi
+	mkdir -p "$(dirname "$2/$3")"; ln -isv "$1/$3" "$2/$3"
 }
 
 # Install symbolic links for config files if they do not already exist
-install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'alacritty/alacritty.yml'
-install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'bspwm/bspwmrc'
-install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'git/config'
-install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'npm/npmrc'
-install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'nvim/init.lua'
-install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'picom/picom.conf'
-install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'polybar/config'
-install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'sxhkd/sxhkdrc'
-install "$XDG_CONFIG_HOME" "$DIR_CONFIG" 'zathura/zathurarc'
+install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'alacritty/alacritty.yml'
+install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'bspwm/bspwmrc'
+install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'git/config'
+install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'npm/npmrc'
+install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'nvim/init.lua'
+install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'picom/picom.conf'
+install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'polybar/config'
+install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'sxhkd/sxhkdrc'
+install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'zathura/zathurarc'
 
-install "$HOME" "$DIR_CONFIG" '.bashrc'
+install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'chromium-flags.conf'
+
+install "$DIR_CONFIG" "$HOME" '.bashrc'
 
 # Install symbolic links for scripts if they do not already exist
-install "$HOME/.local/bin" "$DIR_SCRIPT" 'flactomp3'
-install "$HOME/.local/bin" "$DIR_SCRIPT" 'reflac'
-install "$HOME/.local/bin" "$DIR_SCRIPT" 'repdf'
+install "$DIR_SCRIPT" "$HOME/.local/bin" 'flactomp3'
+install "$DIR_SCRIPT" "$HOME/.local/bin" 'reflac'
+install "$DIR_SCRIPT" "$HOME/.local/bin" 'repdf'
 
 # Ensure that required programs are installed
 if ! command -v git > /dev/null; then error 'git: Not found in PATH'; fi
