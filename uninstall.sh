@@ -19,6 +19,7 @@ uninstall() { if [ -L "$1" ]; then rm -iv "$1"; return; fi }
 # Uninstall symbolic links for config files if they exist
 uninstall "$XDG_CONFIG_HOME/alacritty/alacritty.yml"
 uninstall "$XDG_CONFIG_HOME/bspwm/bspwmrc"
+uninstall "$XDG_CONFIG_HOME/dunst/dunstrc"
 uninstall "$XDG_CONFIG_HOME/git/config"
 uninstall "$XDG_CONFIG_HOME/npm/npmrc"
 uninstall "$XDG_CONFIG_HOME/nvim/init.lua"
