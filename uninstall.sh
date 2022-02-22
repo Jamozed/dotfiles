@@ -14,10 +14,7 @@ if [ -z "$XDG_DATA_HOME" ]; then XDG_DATA_HOME="$HOME/.local/share"; fi
 DIR="$(dirname $(realpath "$0"))"
 
 # Uninstall the file $1
-uninstall() {
-	if [ ! -L "$1" ]; then warn "$1: Not installed"; return; fi
-	rm "$1"
-}
+uninstall() { if [ -L "$1" ]; then rm -iv "$1"; return; fi }
 
 # Uninstall symbolic links for config files if they exist
 uninstall "$XDG_CONFIG_HOME/alacritty/alacritty.yml"

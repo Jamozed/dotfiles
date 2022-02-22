@@ -17,9 +17,8 @@ DIR_SCRIPT="$DIR/script"
 
 # Install the file $3 from the source $2 to destination $1
 install() {
-	if [ -L "$1/$3" ]; then warn "$3: Already installed"; return; fi
-	if [ -e "$1/$3" ]; then warn "$3: File exists"; return; fi
-	mkdir -p "$(dirname "$1/$3")"; ln -s "$2/$3" "$1/$3"
+	if [ -L "$1/$3" ]; then echo "$3: already installed"; return; fi
+	mkdir -p "$(dirname "$1/$3")"; ln -isv "$2/$3" "$1/$3"
 }
 
 # Install symbolic links for config files if they do not already exist
