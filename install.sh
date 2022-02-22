@@ -1,15 +1,19 @@
 #!/usr/bin/env sh
-DIR="$(dirname $(realpath "$0"))"
-DIR_CONFIG="$DIR/config"
-DIR_SCRIPT="$DIR/script"
+# install.sh
+# Script for installing dotfiles
+
+# Print the message $1 to stderr and potentially exit
+error() { echo "$(basename "$0"): $1" >&2; exit 1; }
+warn() { echo "$(basename "$0"): $1" >&2; }
 
 # Check XDG environment variables, and set the to default if unset
 if [ -z "$XDG_CONFIG_HOME" ]; then XDG_CONFIG_HOME="$HOME/.config"; fi
 if [ -z "$XDG_DATA_HOME" ]; then XDG_DATA_HOME="$HOME/.local/share"; fi
 
-# Print the message $1 to stderr and potentially exit
-error() { echo "$(basename "$0"): $1" >&2; exit 1; }
-warn() { echo "$(basename "$0"): $1" >&2; }
+# Set directory variables
+DIR="$(dirname $(realpath "$0"))"
+DIR_CONFIG="$DIR/config"
+DIR_SCRIPT="$DIR/script"
 
 # Install the file $3 from the source $2 to destination $1
 install() {
