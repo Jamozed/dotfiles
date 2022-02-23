@@ -1,3 +1,7 @@
+# vim: set ft=dosini:
+# Config file for Dunst
+# Located in ~/.config/dunst
+
 [global]
 	notification_limit = 4
 	corner_radius = 6

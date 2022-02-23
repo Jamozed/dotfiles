@@ -25,6 +25,7 @@ uninstall "$XDG_CONFIG_HOME/npm/npmrc"
 uninstall "$XDG_CONFIG_HOME/nvim/init.lua"
 uninstall "$XDG_CONFIG_HOME/picom/picom.conf"
 uninstall "$XDG_CONFIG_HOME/polybar/config"
+uninstall "$XDG_CONFIG_HOME/rofi/config.rasi"
 uninstall "$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
 uninstall "$XDG_CONFIG_HOME/zathura/zathurarc"
 

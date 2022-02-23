@@ -1,0 +1,71 @@
+// config.rasi
+// Config file for Rofi
+// Located in ~/.config/rofi
+
+* {
+	bg: #1d2021;
+	bg0: #1d2021;
+	bg1: #3c3836;
+	bg2: #504945;
+	bg3: #665c54;
+	bg4: #7c6f64;
+	fg: #ebdbb2;
+	fg0: #fbf1c7;
+	fg1: #ebdbb2;
+	fg2: #d5c4a1;
+	fg3: #bdae93;
+	fg4: #a89984;
+	
+	c0: #1d20d2;
+	c1: #cc241d;
+	c2: #98971a;
+	c3: #d79921;
+	c4: #458588;
+	c5: #b16286;
+	c6: #689d6a;
+	c7: #a89984;
+	c8: #928374;
+	c9: #fb4934;
+	c10: #b8bb26;
+	c11: #fabd2f;
+	c12: #83a598;
+	c13: #d3869b;
+	c14: #8ec07c;
+	c15: #ebdbb2;
+	
+	or0: #d65d0e;
+	or1: #fe8019;
+	
+	background: @bg;
+	background-color: @bg;
+	foreground: @fg;
+	border-color: @c7;
+	separatorcolor: @c7;
+	scrollbar-handle: @c7;
+	
+	normal-background: @bg;
+	normal-foreground: @fg;
+	alternate-normal-background: @bg;
+	alternate-normal-foreground: @fg;
+	selected-normal-background: @bg1;
+	selected-normal-foreground: @or0;
+	
+	active-background: @c3;
+	active-foreground: @bg;
+	alternate-active-background: @c3;
+	alternate-active-foreground: @bg;
+	selected-active-background: @c11;
+	selected-active-foreground: @bg;
+	
+	urgent-background: @c1;
+	urgent-foreground: @bg;
+	alternate-urgent-background: @c1;
+	alternate-urgent-foreground: @bg;
+	selected-urgent-background: @c9;
+	selected-urgent-foreground: @bg;
+}
+
+window {
+	border: 2;
+	border-radius: 6;
+}

@@ -37,6 +37,7 @@ install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'npm/npmrc'
 install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'nvim/init.lua'
 install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'picom/picom.conf'
 install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'polybar/config'
+install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'rofi/config.rasi'
 install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'sxhkd/sxhkdrc'
 install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'zathura/zathurarc'
 

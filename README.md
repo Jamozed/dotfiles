@@ -5,13 +5,15 @@ Configuration files and scripts for my Linux system.
 ## Configs
 
 - Alacritty (Terminal)
+- BSPWM (Window Manager)
 - Bash (Shell)
-- bspwm (Window Manager)
+- Dunst (Notification Daemon)
 - Git (VCS)
 - Neovim (Editor)
-- picom (Compositor)
+- Picom (Compositor)
 - Polybar (Status Bar)
-- sxhkd (Hotkey Daemon)
+- Rofi (Run Dialog)
+- SXHKD (Hotkey Daemon)
 - Zathura (PDF Viewer)
 
 ## Scripts
