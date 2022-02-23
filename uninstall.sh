@@ -29,6 +29,9 @@ uninstall "$XDG_CONFIG_HOME/rofi/config.rasi"
 uninstall "$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
 uninstall "$XDG_CONFIG_HOME/zathura/zathurarc"
 
+uninstall "$XDG_CONFIG_HOME/chromium-flags.conf"
+
+uninstall "$HOME/.bash_profile"
 uninstall "$HOME/.bashrc"
 
 # Uninstall symbolic links for scripts if they exist

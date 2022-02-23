@@ -43,6 +43,7 @@ install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'zathura/zathurarc'
 
 install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'chromium-flags.conf'
 
+install "$DIR_CONFIG" "$HOME" '.bash_profile'
 install "$DIR_CONFIG" "$HOME" '.bashrc'
 
 # Install symbolic links for scripts if they do not already exist
