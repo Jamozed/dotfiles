@@ -2,19 +2,10 @@
 # Config file for bspwm
 # Located in ~/.config/bspwm
 
-# Source environment variables from .profile
-source "$HOME/.profile"
-
 # Launch or relaunch daemons
 pkill -x sxhkd; sxhkd &
 pkill -x dunst; dunst &
 pgrep -x picom > /dev/null || picom &
-
-# Start the Gnome keyring daemon
-if [ -n "$DESKTOP_SESSION" ]; then
-	eval $(gnome-keyring-daemon --start)
-	export SSH_AUTH_SOCK
-fi
 
 # Configure cursor
 xsetroot -cursor_name left_ptr
