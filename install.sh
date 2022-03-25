@@ -33,6 +33,9 @@ install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'alacritty/alacritty.yml'
 install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'bspwm/bspwmrc'
 install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'dunst/dunstrc'
 install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'git/config'
+install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'lf/cleaner'
+install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'lf/lfrc'
+install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'lf/preview'
 install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'npm/npmrc'
 install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'nvim/init.lua'
 install "$DIR_CONFIG" "$XDG_CONFIG_HOME" 'picom/picom.conf'
@@ -48,6 +51,7 @@ install "$DIR_CONFIG" "$HOME" '.bashrc'
 
 # Install symbolic links for scripts if they do not already exist
 install "$DIR_SCRIPT" "$HOME/.local/bin" 'flactomp3'
+install "$DIR_SCRIPT" "$HOME/.local/bin" 'lfrun'
 install "$DIR_SCRIPT" "$HOME/.local/bin" 'reflac'
 install "$DIR_SCRIPT" "$HOME/.local/bin" 'repdf'
 

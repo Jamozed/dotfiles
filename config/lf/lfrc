@@ -1,0 +1,17 @@
+# Config file for LF
+# Located in ~/.config/lf
+
+set cleaner ~/.config/lf/cleaner
+set previewer ~/.config/lf/preview
+set shellopts '-eu'
+
+map <backspace2> set hidden!
+map <enter> open
+map <f-2> rename
+map <f-4> edit
+map D delete
+
+cmd edit $$EDITOR "$f"
+cmd mkdir $mkdir "$@"
+cmd open $rifle "$f"
+cmd touch $touch "$@"

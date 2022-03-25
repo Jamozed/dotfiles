@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+# Cleaner script for LF
+# Located in ~/.config/lf
+
+if [ -n "$FIFO_UEBERZUG" ]; then
+	printf '{"action": "remove", "identifier": "PREVIEW"}\n' > "$FIFO_UEBERZUG"
+fi

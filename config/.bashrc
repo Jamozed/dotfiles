@@ -7,9 +7,11 @@ HISTFILE="$XDG_DATA_HOME/bash/history"
 
 shopt -s histappend
 
-alias ls='ls -v --color=auto --group-directories-first --si'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
+alias lf='lfrun'
+alias ls='ls -v --color=auto --group-directories-first --si'
+alias bat='bat -ppnf --theme=gruvbox-dark'
 
 alias echo='env echo'
 
