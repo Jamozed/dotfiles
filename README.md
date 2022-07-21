@@ -9,6 +9,7 @@ Configuration files and scripts for my Linux system.
 - Bash (Shell)
 - Dunst (Notification Daemon)
 - Git (VCS)
+- Kitty (Terminal)
 - LF (File Manager)
 - Neovim (Editor)
 - Picom (Compositor)
